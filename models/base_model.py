@@ -20,11 +20,13 @@ class BaseModel:
             self.updated_at = datetime.now()
 
     def save(self):
-        """ updates the public instance attribute updated_at with the current datetime"""
+        """ updates the public instance attribute updated_at"""
+        """with the current datetime"""
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """method to return a dictionary containing all keys/values of __dict__ of the instance"""
+        """method to return a dictionary containing all keys/values"""
+        """of __dict__ of the instance"""
         newDict = {}
         newDict["__class__"] = self.__class__.__name__
         for key, val in self.__dict__.items():
