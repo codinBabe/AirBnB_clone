@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""console"""
+"""Defines the HBNB console"""
 
 import cmd
 
