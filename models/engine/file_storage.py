@@ -7,14 +7,12 @@ from models.base_model import BaseModel
 
 
 class FileStorage:
-    """A class that serializes instances to a JSON file and deserializes"""
-    """JSON file to instances"""
-
-    def __init__(self):
-        """Initialize the FileStorage instance with private attributes"""
-
-        self.__file_path = "file.json"
-        self.__objects = {}
+    """
+    A class that serializes instances to a JSON file and deserializes
+    JSON file to instances
+    """
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
 
@@ -36,8 +34,9 @@ class FileStorage:
         """Convert object to JSON file"""
         newObj = {}
         for key, val in self.__objects.items():
-            with open(self.__file_path, 'w', encoding='utf8') as jsonFile:
-                json.dump(newObj, jsonFile)
+            newObj[key] = val.to_dict()
+            with open(self.__file_path, 'w', encoding='utf8') as file:
+                json.dump(newObj, file)
 
     def reload(self):
 
