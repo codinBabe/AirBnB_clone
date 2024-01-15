@@ -10,12 +10,12 @@ import models
 class BaseModel:
     """class that defines all common atrribtes/methods for other classes"""
     def __init__(self, *args, **kwargs):
-        if len(kwargs) != 0:
+        if kwargs:
+            del kwargs["__class__"]
             for key, val in kwargs.items():
-                if key == "__class__":
-                    continue
-                elif key == "created_at" or key == "updated_at":
-                    setattr(self, key, datetime.isoformat(val))
+                if key == "created_at" or key == "updated_at":
+                    strp_dtime = datetime.strptime(val, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, key, strp_dtime)
                 else:
                     setattr(self, key, val)
         else:
