@@ -34,10 +34,41 @@
     right: 15px;
     top: 15px;
 }
-.information{
-    height: 80px;
-    border:1px solid #DDDDDD;
+.information {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80px;
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	text-align: center;
 }
 .information>div{
     width: 100px;
+}
+.max_guest{
+    background: url('../images/icon_group.png') center center no-repeat;
+}
+.number_rooms{
+    background: url('../images/icon_bed.png') center center no-repeat;
+}
+.number_bathrooms{
+    background: url('../images/icon_bath.png') center center no-repeat;
+}
+.max_guest, .number_rooms, .number_bathrooms {
+	position: relative;
+	width: 100px;
+	height: 100%;
+}
+.max_guest span, .number_rooms span, .number_bathrooms span {
+	position: relative;
+	padding-top: 60px;
+	display: block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.user {
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
